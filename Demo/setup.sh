@@ -8,8 +8,8 @@ eda='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "import os\\\n",
-    "import sys\\\n",
+    "import os\\n",
+    "import sys\\n",
     "import subprocess"
    ]
  },
@@ -19,10 +19,10 @@ eda='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Import required modules\\\n",
-    "import numpy as np\\\n",
-    "import pandas as pd\\\n",
-    "import matplotlib.pyplot as plt\\\n",
+    "# Import required modules\\n",
+    "import numpy as np\\n",
+    "import pandas as pd\\n",
+    "import matplotlib.pyplot as plt\\n",
     "import seaborn as sns"
    ]
  },
@@ -32,10 +32,10 @@ eda='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "csv_files = (subprocess.check_output(\"find ../Data/  -name \\*.csv\",shell=True)\\\n",
-    "            ).decode("utf-8").split("\\\\n")\\\n",
-    "excel_files = (subprocess.check_output(\"find ../Data/  -name \\*.xlsx\",shell=True)\\\n",
-    "              ).decode("utf-8").split("\\\\n")"
+    "csv_files = (subprocess.check_output(\"find ../Data/  -name \\*.csv\",shell=True)\\n",
+    "            ).decode("utf-8").split("\\\n")\\n",
+    "excel_files = (subprocess.check_output(\"find ../Data/  -name \\*.xlsx\",shell=True)\\n",
+    "              ).decode("utf-8").split("\\\n")"
    ]
  },
   {
@@ -44,13 +44,13 @@ eda='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Load data\\\n",
-    "try:\\\n",
-    "    data = pd.read_csv(csv_files[0])\\\n",
-    "except:\\\n",
-    "    try:\\\n",
-    "        data = pd.read_csv(excel_files[0])\\\n",
-    "    except:\\\n",
+    "# Load data\\n",
+    "try:\\n",
+    "    data = pd.read_csv(csv_files[0])\\n",
+    "except:\\n",
+    "    try:\\n",
+    "        data = pd.read_csv(excel_files[0])\\n",
+    "    except:\\n",
     "        print ("No .csv or .xlsx files found.")"
    ]
  },
@@ -60,7 +60,7 @@ eda='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "# View data\\\n",
+    "# View data\\n",
     "data.head()"
    ]
  },
@@ -70,7 +70,7 @@ eda='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Count data\\\n",
+    "# Count data\\n",
     "data.count()"
    ]
  },
@@ -80,7 +80,7 @@ eda='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Describe data\\\n",
+    "# Describe data\\n",
     "data.describe().transpose()"
    ]
  },
@@ -97,7 +97,7 @@ eda='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Dtypes of data\\\n",
+    "# Dtypes of data\\n",
     "data.dtypes"
    ]
  },
@@ -107,9 +107,9 @@ eda='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Print columns whose dtypes are neither float not int\\\n",
-    "for column in data.columns:\\\n",
-    "    if ((data[column].dtype != int) and (data[column].dtype != float)):\\\n",
+    "# Print columns whose dtypes are neither float not int\\n",
+    "for column in data.columns:\\n",
+    "    if ((data[column].dtype != int) and (data[column].dtype != float)):\\n",
     "        print (column)"
    ]
  },
@@ -160,9 +160,9 @@ model_evaluate='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "import os\\\n",
-    "import sys\\\n",
-    "import time\\\n",
+    "import os\\n",
+    "import sys\\n",
+    "import time\\n",
     "import subprocess"
    ]
  },
@@ -172,20 +172,20 @@ model_evaluate='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Import required modules\\\n",
-    "\\\n",
-    "import numpy as np\\\n",
-    "import pandas as pd\\\n",
-    "from matplotlib import pyplot as plt\\\n",
-    "import seaborn as sns\\\n",
-    "from tqdm import tqdm\\\n",
-    "\\\n",
-    "from sklearn.externals import joblib\\\n",
-    "from sklearn.preprocessing import StandardScaler\\\n",
-    "from sklearn.preprocessing import MinMaxScaler\\\n",
-    "\\\n",
-    "from sklearn.metrics import accuracy_score,f1_score,precision_score,recall_score\\\n",
-    "from sklearn.metrics import roc_auc_score,roc_curve,confusion_matrix\\\n",
+    "# Import required modules\\n",
+    "\\n",
+    "import numpy as np\\n",
+    "import pandas as pd\\n",
+    "from matplotlib import pyplot as plt\\n",
+    "import seaborn as sns\\n",
+    "from tqdm import tqdm\\n",
+    "\\n",
+    "from sklearn.externals import joblib\\n",
+    "from sklearn.preprocessing import StandardScaler\\n",
+    "from sklearn.preprocessing import MinMaxScaler\\n",
+    "\\n",
+    "from sklearn.metrics import accuracy_score,f1_score,precision_score,recall_score\\n",
+    "from sklearn.metrics import roc_auc_score,roc_curve,confusion_matrix\\n",
     "from sklearn.metrics import r2_score,mean_absolute_error,mean_squared_error"
    ]
  },
@@ -195,7 +195,7 @@ model_evaluate='{
    "metadata": {},
    "outputs": [],
    "source": [
-    "# Import saved models\\\n",
+    "# Import saved models\\n",
     "model = joblib.load("../Models/SavedModels/")"
    ]
  },
@@ -493,8 +493,236 @@ mkdir Notebooks/images
 touch Notebooks/ExploratoryDataAnalysis.ipynb
 touch Notebooks/ModelEvaluation.ipynb
 
-printf "$eda" >> Notebooks/ExploratoryDataAnalysis.ipynb
-printf "$model_evaluate" >> Notebooks/ModelEvaluation.ipynb
+echo '{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\\n",
+    "import sys\\n",
+    "import subprocess"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import required modules\\n",
+    "import numpy as np\\n",
+    "import pandas as pd\\n",
+    "import matplotlib.pyplot as plt\\n",
+    "import seaborn as sns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "csv_files = (subprocess.check_output(\"find ../Data/  -name \\\\*.csv\",shell=True)\\n",
+    "            ).decode('"'utf-8'"').splitlines()\\n",
+    "excel_files = (subprocess.check_output(\"find ../Data/  -name \\\\*.xlsx\",shell=True)\\n",
+    "              ).decode('"'utf-8'"').splitlines()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Load data\\n",
+    "try:\\n",
+    "    data = pd.read_csv(csv_files[0])\\n",
+    "except:\\n",
+    "    try:\\n",
+    "        data = pd.read_csv(excel_files[0])\\n",
+    "    except:\\n",
+    "        print ('"'No .csv or .xlsx files found.'"')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# View data\\n",
+    "data.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Count data\\n",
+    "data.count()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Describe data\\n",
+    "data.describe().transpose()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Quality checks"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Dtypes of data\\n",
+    "data.dtypes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Print columns whose dtypes are neither float not int\\n",
+    "for column in data.columns:\\n",
+    "    if ((data[column].dtype != int) and (data[column].dtype != float)):\\n",
+    "        print (column)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Exploratory Analysis"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}' > Notebooks/ExploratoryDataAnalysis.ipynb
+
+echo '{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\\n",
+    "import sys\\n",
+    "import time\\n",
+    "import subprocess"
+   ]
+ },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import required modules\\n",
+    "\\n",
+    "import numpy as np\\n",
+    "import pandas as pd\\n",
+    "from matplotlib import pyplot as plt\\n",
+    "import seaborn as sns\\n",
+    "from tqdm import tqdm\\n",
+    "\\n",
+    "from sklearn.externals import joblib\\n",
+    "from sklearn.preprocessing import StandardScaler\\n",
+    "from sklearn.preprocessing import MinMaxScaler\\n",
+    "\\n",
+    "from sklearn.metrics import accuracy_score,f1_score,precision_score,recall_score\\n",
+    "from sklearn.metrics import roc_auc_score,roc_curve,confusion_matrix\\n",
+    "from sklearn.metrics import r2_score,mean_absolute_error,mean_squared_error"
+   ]
+ },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Import saved models\\n",
+    "model = joblib.load('"'../Models/SavedModels/'"')"
+   ]
+ },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "pwd"
+   ]
+ }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+ },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+  },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.2"
+ }
+},
+ "nbformat": 4,
+ "nbformat_minor": 2
+}' > Notebooks/ModelEvaluation.ipynb
 
 # 2
 mkdir src
@@ -505,9 +733,9 @@ touch src/classifiers.py
 touch src/TrainModel.py
 mkdir src/log
 
-printf "$classifiers" >> src/classifiers.py
-printf "$feature_selection" >> src/FeatureSelection.py
-printf "$train_model" >> src/TrainModel.py
+printf "$classifiers" > src/classifiers.py
+printf "$feature_selection" > src/FeatureSelection.py
+printf "$train_model" > src/TrainModel.py
 
 # 3
 mkdir Models
