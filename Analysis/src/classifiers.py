@@ -66,7 +66,7 @@ class MLP(object):
         self.n_hidden = n_hidden
         self.n_units = n_units
 
-    def train(self,feature_matrix,label_vector):
+    def train(self,feature_matrix, label_vector):
         self.trained_model = MLPClassifier([self.n_units]*self.n_hidden,
         random_state = 2,max_iter = 500,warm_start = False)
         self.trained_model.fit(feature_matrix,label_vector)
